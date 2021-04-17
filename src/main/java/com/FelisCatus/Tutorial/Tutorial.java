@@ -69,6 +69,7 @@ public class Tutorial {
     }
     private void setup(final FMLCommonSetupEvent event)
     {
+      //此处代码暂时用不到
       event.enqueueWork(()->
       {
         ItemModelsProperties.registerProperty(ItemList.CHARGED_ITEM.get(),
