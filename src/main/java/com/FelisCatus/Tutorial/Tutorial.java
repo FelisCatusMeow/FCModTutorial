@@ -86,10 +86,11 @@ public class Tutorial {
 
     }
 
-    private void onServerStarting(FMLServerStartingEvent event)
-    {
+    //暂时用不到
+    // private void onServerStarting(FMLServerStartingEvent event)
+    // {
       
-    }
+    // }
 
 
     public static class TutorialGroup extends ItemGroup
