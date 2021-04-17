@@ -1,0 +1,27 @@
+{
+    "variants":{
+        "facing=north":{
+            "model":"tutorial:block/rotate_block"
+    },
+    "facing=south":{
+        "model":"tutorial:block/rotate_block",
+        "y":180
+    },
+    "facing=east":{
+        "model":"tutorial:block/rotate_block",
+        "y":90
+    },
+    "facing=west":{
+        "model":"tutorial:block/rotate_block",
+        "y":270
+    },
+    "facing=up":{
+        "model":"tutorial:block/rotate_block",
+        "x":270
+    },
+    "facing=down":{
+        "model":"tutorial:block/rotate_block",
+        "x":90
+    }
+}
+}
