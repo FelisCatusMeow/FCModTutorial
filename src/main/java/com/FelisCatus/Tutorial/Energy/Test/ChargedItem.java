@@ -1,8 +1,17 @@
 package com.FelisCatus.Tutorial.Energy.Test;
 
+
+
+/**************************************
+            =====注意！=====
+本文件为测试用文件，代码可能不会正常运行!
+**************************************/
+
+
+
+
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.IntStream;
 
 import javax.annotation.Nonnull;
 
@@ -10,11 +19,9 @@ import com.FelisCatus.Tutorial.Tutorial;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.Direction;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -26,6 +33,8 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
+
+
 
 public class ChargedItem extends Item {
 

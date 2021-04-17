@@ -16,6 +16,5 @@ public class ItemList {
     public static final RegistryObject<Item> PINK_SWROD = ITEMS.register("pink_sword", PinkSword::new);
 
     // 能量
-    // 充电宝
     public static final RegistryObject<ChargedItem> CHARGED_ITEM = ITEMS.register("charged_item", ChargedItem::new);
 }
