@@ -3,6 +3,7 @@ package com.FelisCatus.Tutorial.List;
 import com.FelisCatus.Tutorial.Tutorial;
 import com.FelisCatus.Tutorial.Miscellaneous.RotateBlock;
 import com.FelisCatus.Tutorial.Miscellaneous.TutorialOreBlock;
+import com.FelisCatus.Tutorial.Util.CustomBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -24,6 +25,9 @@ public class BlockList {
         public static final RegistryObject<RotateBlock> ROTATE_BLOCK = BLOCKS.register("rotate_block",
                         () -> new RotateBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(0.5F)
                                         .sound(SoundType.STONE)));
+
+        public static final RegistryObject<Block> CUSTOM_BLOCK = BLOCKS.register("custom_block",()->
+        new CustomBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(5.0F)));
 
         // public static final RegistryObject<CustomModel> CUSTOM_MODEL =
         // BLOCKS.register("custom_model",()->new

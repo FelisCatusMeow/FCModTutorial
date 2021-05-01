@@ -1,0 +1,43 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "tutorial:block/tutorial_block_b",
+		"1": "tutorial:block/tutorial_block_r",
+		"2": "tutorial:block/G",
+		"particle": "tutorial:block/tutorial_block_b"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [14, 2, 16],
+			"faces": {
+				"north": {"uv": [16, 32, 30, 34], "texture": "#0"},
+				"east": {"uv": [0, 32, 16, 34], "texture": "#0"},
+				"south": {"uv": [46, 32, 60, 34], "texture": "#0"},
+				"west": {"uv": [30, 32, 46, 34], "texture": "#0"},
+				"up": {"uv": [30, 32, 16, 16], "texture": "#1"},
+				"down": {"uv": [44, 16, 30, 32], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 2, 0],
+			"to": [2, 14, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 2, 0]},
+			"faces": {
+				"north": {"uv": [16, 32, 18, 44], "texture": "#0"},
+				"east": {"uv": [0, 32, 16, 44], "texture": "#2"},
+				"south": {"uv": [34, 32, 36, 44], "texture": "#0"},
+				"west": {"uv": [18, 32, 34, 44], "texture": "#0"},
+				"up": {"uv": [18, 32, 16, 16], "texture": "#0"},
+				"down": {"uv": [20, 16, 18, 32], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "bone",
+			"origin": [0, 0, 0],
+			"children": [0, 1]
+		}
+	]
+}
