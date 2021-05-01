@@ -1,13 +1,5 @@
 package com.FelisCatus.Tutorial.Util;
 
-
-
-/**************************************
-            =====注意！=====
-本文件为测试用文件，代码可能不会正常运行!
-**************************************/
-
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,18 +17,16 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IWorld;
 
-public class HorizontalBlockBase extends Block {
-    
-    protected static final Map<Block,Map<Direction,VoxelShape>> SHAPES = new HashMap<Block,Map<Direction,VoxelShape>>();
+public class HorizontalBlockBase extends Block{
 
+    protected static final Map<Block,Map<Direction,VoxelShape>> SHAPES = new HashMap<Block,Map<Direction,VoxelShape>>();
     public static final DirectionProperty HORIZONTAL_FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public HorizontalBlockBase(Properties properties) 
-    {
-    super(properties);
-    this.setDefaultState(this.stateContainer.getBaseState().with(HORIZONTAL_FACING, Direction.NORTH));
+    public HorizontalBlockBase(Properties properties) {
+        super(properties);
+        this.setDefaultState(this.stateContainer.getBaseState().with(HORIZONTAL_FACING, Direction.NORTH));
     }
-
+    
     @SuppressWarnings("deprecation")
     @Override
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
@@ -46,12 +36,12 @@ public class HorizontalBlockBase extends Block {
     @Override
     public BlockState rotate(BlockState state, IWorld world, BlockPos pos, Rotation direction)
     {
-        return state.with(HORIZONTAL_FACING, direction.rotate(state.get(HORIZONTAL_FACING)));
+        return state.with(HORIZONTAL_FACING,direction.rotate(state.get(HORIZONTAL_FACING)));
     }
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite());
+        return this.getDefaultState().with(HORIZONTAL_FACING,context.getPlacementHorizontalFacing().getOpposite());
     }
 
     @Override
@@ -84,5 +74,4 @@ public class HorizontalBlockBase extends Block {
             facingMap.put(direction, calculateShapes(direction, shape));
         }
     }
-
 }

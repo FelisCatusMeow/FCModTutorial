@@ -8,30 +8,23 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 
-public class CustomBlock extends Block {
+public class CustomBlock extends HorizontalBlockBase {
 
     private static VoxelShape shape;
-    static
-    {
-        VoxelShape column0 = Block.makeCuboidShape(0, 0, 0, 14, 2, 16);
-        //"from": [0, 0, 0],
-		//"to": [14, 2, 16],
+    static {
+        VoxelShape shape1 = Block.makeCuboidShape(3, 0, 5, 14, 1, 11);
+        VoxelShape shape2 = Block.makeCuboidShape(4, 1, 5, 12, 2, 6);
 
-        VoxelShape column1 = Block.makeCuboidShape(0, 2, 0, 2, 14, 16);
-        //"from": [0, 2, 0],
-		//"to": [2, 14, 16],
-
-        shape = VoxelShapes.or(column0, column1);
+        shape = VoxelShapes.or(shape1, shape2);
     }
-
 
     public CustomBlock(Properties properties) {
         super(properties);
+        runCalculation(shape);
     }
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return shape;
+        return SHAPES.get(this).get(state.get(HORIZONTAL_FACING));
     }
-    
 }

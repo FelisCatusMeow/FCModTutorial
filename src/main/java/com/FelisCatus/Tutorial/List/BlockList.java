@@ -26,9 +26,21 @@ public class BlockList {
                         () -> new RotateBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(0.5F)
                                         .sound(SoundType.STONE)));
 
-        public static final RegistryObject<Block> CUSTOM_BLOCK = BLOCKS.register("custom_block",()->
-        new CustomBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(5.0F)));
+        public static final RegistryObject<CustomBlock> CUSTOM_BLOCK = BLOCKS.register("custom_block",
+                        ()-> new CustomBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(5.0F)));
 
+        /*
+        //楼梯
+        @SuppressWarnings("deprecation")
+        public static final RegistryObject<StairsBlock> CUSTOM_STAIR = BLOCKS.register("custom_stair",()->
+        new StairsBlock(Blocks.STONE_STAIRS.getDefaultState(),Block.Properties.from(Blocks.STONE_STAIRS)));
+
+        //石墙
+        public static final RegistryObject<WallBlock> CUSTOM_WALL = BLOCKS.register("custom_wall",()->
+        new WallBlock(Block.Properties.from(Blocks.COBBLESTONE_WALL)));
+        */
+        
+        
         // public static final RegistryObject<CustomModel> CUSTOM_MODEL =
         // BLOCKS.register("custom_model",()->new
         // CustomModel(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(5.0F)));
