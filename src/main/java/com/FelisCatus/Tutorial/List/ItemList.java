@@ -1,7 +1,6 @@
 package com.FelisCatus.Tutorial.List;
 
 import com.FelisCatus.Tutorial.Tutorial;
-import com.FelisCatus.Tutorial.Energy.Test.ChargedItem;
 import com.FelisCatus.Tutorial.ToolItem.PinkSword;
 
 import net.minecraft.item.Item;
@@ -16,5 +15,5 @@ public class ItemList {
     public static final RegistryObject<Item> PINK_SWROD = ITEMS.register("pink_sword", PinkSword::new);
 
     // 能量
-    public static final RegistryObject<ChargedItem> CHARGED_ITEM = ITEMS.register("charged_item", ChargedItem::new);
+    //public static final RegistryObject<ChargedItem> CHARGED_ITEM = ITEMS.register("charged_item", ChargedItem::new);
 }

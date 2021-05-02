@@ -1,23 +1,22 @@
 package com.FelisCatus.Tutorial;
 
 import com.FelisCatus.Tutorial.List.BlockList;
+import com.FelisCatus.Tutorial.List.ContainerList;
 import com.FelisCatus.Tutorial.List.ItemList;
+import com.FelisCatus.Tutorial.List.TileEntityList;
+import com.FelisCatus.Tutorial.client.Gui.Screen.DisplayCaseScreen;
 import com.FelisCatus.Tutorial.world.gen.OreGeneration;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.CapabilityEnergy;
-import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -50,6 +49,9 @@ public class Tutorial {
 
         ItemList.ITEMS.register(modEventBus);
         BlockList.BLOCKS.register(modEventBus);
+        ContainerList.CONTAINERS.register(modEventBus);
+        TileEntityList.TILE_ENTITY_TYPE.register(modEventBus);
+
 
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
     }
@@ -70,6 +72,8 @@ public class Tutorial {
     private void setup(final FMLCommonSetupEvent event)
     {
       //此处代码暂时用不到
+      
+      /*
       event.enqueueWork(()->
       {
         ItemModelsProperties.registerProperty(ItemList.CHARGED_ITEM.get(),
@@ -79,11 +83,13 @@ public class Tutorial {
     return lazyOptional.map(e -> (float) e.getEnergyStored() / e.getMaxEnergyStored()).orElse(0.0F);
         });
       });
+      */
     }
+    
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-
+      ScreenManager.registerFactory(ContainerList.GUI_CASE_CONTAINER_TYPE.get(), DisplayCaseScreen::new);
     }
 
     //暂时用不到
