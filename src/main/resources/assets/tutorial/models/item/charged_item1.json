@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-      "layer0": "fedemo:item/charged_item1"
+      "layer0": "tutorial:item/charged_item1"
     }
   }
   
