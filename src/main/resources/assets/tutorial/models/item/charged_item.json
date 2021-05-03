@@ -6,25 +6,25 @@
     "overrides": [
       {
         "predicate": {
-          "energy": 0.125
+          "tutorial:energy": 0.125
         },
         "model": "tutorial:item/charged_item1"
       },
       {
         "predicate": {
-          "energy": 0.375
+          "tutorial:energy": 0.375
         },
         "model": "tutorial:item/charged_item2"
       },
       {
         "predicate": {
-          "energy": 0.625
+          "tutorial:energy": 0.625
         },
         "model": "tutorial:item/charged_item3"
       },
       {
         "predicate": {
-          "energy": 0.875
+          "tutorial:energy": 0.875
         },
         "model": "tutorial:item/charged_item4"
       }

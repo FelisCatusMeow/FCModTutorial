@@ -73,12 +73,6 @@ public class Tutorial {
 
   private void setup(final FMLCommonSetupEvent event) {
 
-    ItemModelsProperties.registerProperty(ItemList.CHARGED_ITEM.get(), new ResourceLocation(MOD_ID, "test_property"),
-        (stack, world, entity) -> {
-          LazyOptional<IEnergyStorage> lazyOptional = stack.getCapability(CapabilityEnergy.ENERGY);
-          return lazyOptional.map(e -> (float) e.getEnergyStored() / e.getMaxEnergyStored()).orElse(0.0F);
-        });
-
     // 此处代码暂时用不到
 
     /*
@@ -93,6 +87,11 @@ public class Tutorial {
 
   private void clientSetup(final FMLClientSetupEvent event) {
     ScreenManager.registerFactory(ContainerList.GUI_CASE_CONTAINER_TYPE.get(), DisplayCaseScreen::new);
+    event.enqueueWork(() -> ItemModelsProperties.registerProperty(ItemList.CHARGED_ITEM.get(),
+        new ResourceLocation(MOD_ID, "energy"), (stack, world, entity) -> {
+          LazyOptional<IEnergyStorage> lazyOptional = stack.getCapability(CapabilityEnergy.ENERGY);
+          return lazyOptional.map(e -> (float) e.getEnergyStored() / e.getMaxEnergyStored()).orElse(0.0F);
+        }));
   }
 
   // 暂时用不到
