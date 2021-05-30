@@ -1,10 +1,9 @@
 package com.FelisCatus.Tutorial.List;
 
-import com.FelisCatus.Tutorial.Tutorial;
-import com.FelisCatus.Tutorial.EnergySystem.ChargedItem;
 import com.FelisCatus.Tutorial.ToolItem.PinkSword;
-
+import com.FelisCatus.Tutorial.Tutorial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,6 +14,6 @@ public class ItemList {
             () -> new Item(new Item.Properties().food(FoodList.SOUP).group(Tutorial.TUTORIAL_GROUP)));
     public static final RegistryObject<Item> PINK_SWROD = ITEMS.register("pink_sword", PinkSword::new);
 
-    // 能量
-    public static final RegistryObject<ChargedItem> CHARGED_ITEM = ITEMS.register("charged_item", ChargedItem::new);
+    public static final RegistryObject<Item> WOW = ITEMS.register("wow", () -> new Item(new Item.Properties().group(ItemGroup.MISC)));
+    
 }

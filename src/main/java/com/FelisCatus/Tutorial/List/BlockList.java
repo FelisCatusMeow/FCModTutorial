@@ -3,9 +3,9 @@ package com.FelisCatus.Tutorial.List;
 import com.FelisCatus.Tutorial.Tutorial;
 import com.FelisCatus.Tutorial.Miscellaneous.RotateBlock;
 import com.FelisCatus.Tutorial.Miscellaneous.TutorialOreBlock;
+
 import com.FelisCatus.Tutorial.Util.CustomBlock;
 import com.FelisCatus.Tutorial.Util.SpecialBlocks.ExampleGUIBlock;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;

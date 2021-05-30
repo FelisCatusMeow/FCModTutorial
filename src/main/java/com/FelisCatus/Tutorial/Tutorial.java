@@ -6,22 +6,9 @@ import com.FelisCatus.Tutorial.List.ItemList;
 import com.FelisCatus.Tutorial.List.TileEntityList;
 import com.FelisCatus.Tutorial.client.Gui.Screen.DisplayCaseScreen;
 import com.FelisCatus.Tutorial.world.gen.OreGeneration;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import net.minecraft.client.gui.ScreenManager;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemModelsProperties;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.item.*;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.CapabilityEnergy;
-import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -31,9 +18,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-//import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+//import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 
 @Mod("tutorial")
 @EventBusSubscriber(modid = "tutorial", bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -87,11 +77,12 @@ public class Tutorial {
 
   private void clientSetup(final FMLClientSetupEvent event) {
     ScreenManager.registerFactory(ContainerList.GUI_CASE_CONTAINER_TYPE.get(), DisplayCaseScreen::new);
-    event.enqueueWork(() -> ItemModelsProperties.registerProperty(ItemList.CHARGED_ITEM.get(),
+    
+    /*event.enqueueWork(() -> ItemModelsProperties.registerProperty(ItemList.CHARGED_ITEM.get(),
         new ResourceLocation(MOD_ID, "energy"), (stack, world, entity) -> {
           LazyOptional<IEnergyStorage> lazyOptional = stack.getCapability(CapabilityEnergy.ENERGY);
           return lazyOptional.map(e -> (float) e.getEnergyStored() / e.getMaxEnergyStored()).orElse(0.0F);
-        }));
+        }));*/
   }
 
   // 暂时用不到
