@@ -1,3 +1,5 @@
 {
-    "item.tutorial.soup":"Soup"
+    "item.tutorial.soup":"Soup",
+    "key.tutorial.category": "Tutorial",
+    "key.tutorial.example_key": "Example Key"
 }

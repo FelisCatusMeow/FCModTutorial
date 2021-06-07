@@ -1,9 +1,7 @@
 package com.FelisCatus.Tutorial;
 
-import com.FelisCatus.Tutorial.List.BlockList;
-import com.FelisCatus.Tutorial.List.ContainerList;
-import com.FelisCatus.Tutorial.List.ItemList;
-import com.FelisCatus.Tutorial.List.TileEntityList;
+import com.FelisCatus.Tutorial.List.*;
+import com.FelisCatus.Tutorial.Network.ExampleNetwork;
 import com.FelisCatus.Tutorial.client.Gui.Screen.DisplayCaseScreen;
 import com.FelisCatus.Tutorial.world.gen.OreGeneration;
 import net.minecraft.client.gui.ScreenManager;
@@ -29,78 +27,67 @@ import org.apache.logging.log4j.Logger;
 @EventBusSubscriber(modid = "tutorial", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Tutorial {
 
-  public static Tutorial instance;
-  public static final Logger LOGGER = LogManager.getLogger(Tutorial.class);
-  public static String MOD_ID = "tutorial";
-  public static final ItemGroup TUTORIAL_GROUP = new Tutorial.TutorialGroup("tutorial_group");
+    public static Tutorial instance;
+    public static final Logger LOGGER = LogManager.getLogger(Tutorial.class);
+    public static String MOD_ID = "tutorial";
+    public static final ItemGroup TUTORIAL_GROUP = new Tutorial.TutorialGroup("tutorial_group");
 
-  public Tutorial() {
-    instance = this;
+    public Tutorial() {
+        instance = this;
 
-    final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-    modEventBus.addListener(this::setup);
-    modEventBus.addListener(this::clientSetup);
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::clientSetup);
 
-    ItemList.ITEMS.register(modEventBus);
-    BlockList.BLOCKS.register(modEventBus);
-    ContainerList.CONTAINERS.register(modEventBus);
-    TileEntityList.TILE_ENTITY_TYPE.register(modEventBus);
+        ItemList.ITEMS.register(modEventBus);
+        BlockList.BLOCKS.register(modEventBus);
+        ContainerList.CONTAINERS.register(modEventBus);
+        TileEntityList.TILE_ENTITY_TYPE.register(modEventBus);
 
-    MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
-  }
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
 
-  @SubscribeEvent
-  public static void BlockItems(final RegistryEvent.Register<Item> event) {
-    final IForgeRegistry<Item> registry = event.getRegistry();
-
-    BlockList.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-      final Item.Properties properties = new Item.Properties().group(TUTORIAL_GROUP);
-      final BlockItem blockItem = new BlockItem(block, properties);
-      blockItem.setRegistryName(block.getRegistryName());
-      registry.register(blockItem);
-    });
-  }
-
-  private void setup(final FMLCommonSetupEvent event) {
-
-    // 此处代码暂时用不到
-
-    /*
-     * event.enqueueWork(()-> {
-     * ItemModelsProperties.registerProperty(ItemList.CHARGED_ITEM.get(), new
-     * ResourceLocation("tutorial" ,"energy"),(stack, world, entity)-> {
-     * LazyOptional<IEnergyStorage> lazyOptional =
-     * stack.getCapability(CapabilityEnergy.ENERGY); return lazyOptional.map(e ->
-     * (float) e.getEnergyStored() / e.getMaxEnergyStored()).orElse(0.0F); }); });
-     */
-  }
-
-  private void clientSetup(final FMLClientSetupEvent event) {
-    ScreenManager.registerFactory(ContainerList.GUI_CASE_CONTAINER_TYPE.get(), DisplayCaseScreen::new);
-    
-    /*event.enqueueWork(() -> ItemModelsProperties.registerProperty(ItemList.CHARGED_ITEM.get(),
-        new ResourceLocation(MOD_ID, "energy"), (stack, world, entity) -> {
-          LazyOptional<IEnergyStorage> lazyOptional = stack.getCapability(CapabilityEnergy.ENERGY);
-          return lazyOptional.map(e -> (float) e.getEnergyStored() / e.getMaxEnergyStored()).orElse(0.0F);
-        }));*/
-  }
-
-  // 暂时用不到
-  // private void onServerStarting(FMLServerStartingEvent event)
-  // {
-
-  // }
-
-  public static class TutorialGroup extends ItemGroup {
-
-    public TutorialGroup(String name) {
-      super(name);
     }
 
-    @Override
-    public ItemStack createIcon() {
-      return new ItemStack(Items.IRON_DOOR);
+    @SubscribeEvent
+    public static void BlockItems(final RegistryEvent.Register<Item> event) {
+        final IForgeRegistry<Item> registry = event.getRegistry();
+
+        BlockList.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
+            final Item.Properties properties = new Item.Properties().group(TUTORIAL_GROUP);
+            final BlockItem blockItem = new BlockItem(block, properties);
+            blockItem.setRegistryName(block.getRegistryName());
+            registry.register(blockItem);
+        });
     }
-  }
+
+    //更改为public
+    public void setup(final FMLCommonSetupEvent event) {
+        ExampleNetwork.list();
+    }
+
+
+    //更改为public
+    public void clientSetup(final FMLClientSetupEvent event) {
+        ScreenManager.registerFactory(ContainerList.GUI_CASE_CONTAINER_TYPE.get(), DisplayCaseScreen::new);
+        KeyBindingList.register(event);
+    }
+
+    // 暂时用不到
+    // private void onServerStarting(FMLServerStartingEvent event)
+    // {
+
+    // }
+
+    public static class TutorialGroup extends ItemGroup {
+
+        public TutorialGroup(String name) {
+            super(name);
+        }
+
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(Items.IRON_DOOR);
+        }
+    }
 
 }
