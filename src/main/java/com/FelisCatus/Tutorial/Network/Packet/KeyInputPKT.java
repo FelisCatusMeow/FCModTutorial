@@ -1,5 +1,4 @@
-package com.FelisCatus.Tutorial.Network.packets;
-//用于获取data
+package com.FelisCatus.Tutorial.Network.Packet;
 
 import com.FelisCatus.Tutorial.List.ItemList;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -20,7 +19,6 @@ public class KeyInputPKT {
         this.key = key;
     }
 
-    /* 编码/解码+处理 */
     public static void encode(KeyInputPKT pkt, PacketBuffer buffer) {
         buffer.writeInt(pkt.key);
     }
@@ -32,7 +30,6 @@ public class KeyInputPKT {
     public static void handlePacket(KeyInputPKT pkt, Supplier<NetworkEvent.Context> context$) {
         NetworkEvent.Context context = context$.get();
         context.enqueueWork(() -> {
-            //---在这里写---//
             ServerPlayerEntity player = context.getSender();
             if (player != null) {
                 player.addItemStackToInventory(new ItemStack(ItemList.SOUP.get()));
