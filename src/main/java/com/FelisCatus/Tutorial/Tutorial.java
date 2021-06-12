@@ -2,8 +2,8 @@ package com.FelisCatus.Tutorial;
 
 import com.FelisCatus.Tutorial.List.*;
 import com.FelisCatus.Tutorial.Network.ExampleNetwork;
-import com.FelisCatus.Tutorial.client.Gui.Screen.DisplayCaseScreen;
-import com.FelisCatus.Tutorial.world.gen.OreGeneration;
+import com.FelisCatus.Tutorial.Client.Gui.Screen.DisplayCaseScreen;
+import com.FelisCatus.Tutorial.World.Gen.OreGeneration;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.item.*;
 import net.minecraftforge.common.MinecraftForge;

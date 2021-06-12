@@ -1,4 +1,4 @@
-package com.FelisCatus.Tutorial.world.gen;
+package com.FelisCatus.Tutorial.World.Gen;
 
 import com.FelisCatus.Tutorial.List.BlockList;
 

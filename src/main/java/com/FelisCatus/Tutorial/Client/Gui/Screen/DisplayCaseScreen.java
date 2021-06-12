@@ -1,4 +1,4 @@
-package com.FelisCatus.Tutorial.client.Gui.Screen;
+package com.FelisCatus.Tutorial.Client.Gui.Screen;
 
 import com.FelisCatus.Tutorial.Tutorial;
 import com.FelisCatus.Tutorial.Util.Container.GUICaseContainer;
