@@ -15,5 +15,7 @@ public class ItemList {
     public static final RegistryObject<Item> PINK_SWROD = ITEMS.register("pink_sword", PinkSword::new);
 
     public static final RegistryObject<Item> WOW = ITEMS.register("wow", () -> new Item(new Item.Properties().group(ItemGroup.MISC)));
-    
+
+
+
 }

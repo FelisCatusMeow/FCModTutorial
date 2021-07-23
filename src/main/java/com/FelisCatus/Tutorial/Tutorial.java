@@ -1,8 +1,8 @@
 package com.FelisCatus.Tutorial;
 
+import com.FelisCatus.Tutorial.Client.Gui.Screen.DisplayCaseScreen;
 import com.FelisCatus.Tutorial.List.*;
 import com.FelisCatus.Tutorial.Network.ExampleNetwork;
-import com.FelisCatus.Tutorial.Client.Gui.Screen.DisplayCaseScreen;
 import com.FelisCatus.Tutorial.World.Gen.OreGeneration;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.item.*;
@@ -52,6 +52,7 @@ public class Tutorial {
     public static void BlockItems(final RegistryEvent.Register<Item> event) {
         final IForgeRegistry<Item> registry = event.getRegistry();
 
+        //.filter()为不想自动注册的方法
         BlockList.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
             final Item.Properties properties = new Item.Properties().group(TUTORIAL_GROUP);
             final BlockItem blockItem = new BlockItem(block, properties);
@@ -61,6 +62,7 @@ public class Tutorial {
     }
 
     //更改为public
+    @SuppressWarnings("deprecation")
     public void setup(final FMLCommonSetupEvent event) {
         ExampleNetwork.list();
     }
