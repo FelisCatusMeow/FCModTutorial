@@ -250,7 +250,7 @@ public void addGoal(int priority, Goal task) {
 
 那么我们的生物差不多就设置完成了，接下来我们需要将生物模型弄出来。
 
-我们创建一个Entity的包（正规写法中包名是要小写的，但是这里一错到底了），在里面新建一个FCEntityRenderer类，再在Entity包中新建一个Model包，在里面创建一个FCEntityModel类。
+我们创建一个Entity的包（正规写法中包名是要小写的，但是这里一错到底了），在里面新建一个FCEntityRenderer类和FCEntityModel类。
 
 接下来我们打开Blockbench（或其他类似软件），但是Blockbench更简单，这里推荐用这个。
 
