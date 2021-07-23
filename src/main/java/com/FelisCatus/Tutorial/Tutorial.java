@@ -1,17 +1,23 @@
 package com.FelisCatus.Tutorial;
 
 import com.FelisCatus.Tutorial.Client.Gui.Screen.DisplayCaseScreen;
+import com.FelisCatus.Tutorial.Entity.FCEntityRenderer;
 import com.FelisCatus.Tutorial.List.*;
+import com.FelisCatus.Tutorial.List.Entity.EntityTypeList;
+import com.FelisCatus.Tutorial.List.Entity.FCEntity;
 import com.FelisCatus.Tutorial.Network.ExampleNetwork;
 import com.FelisCatus.Tutorial.World.Gen.OreGeneration;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -39,6 +45,7 @@ public class Tutorial {
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::clientSetup);
 
+        EntityTypeList.ENTITY_TYPE.register(modEventBus);
         ItemList.ITEMS.register(modEventBus);
         BlockList.BLOCKS.register(modEventBus);
         ContainerList.CONTAINERS.register(modEventBus);
@@ -65,6 +72,10 @@ public class Tutorial {
     @SuppressWarnings("deprecation")
     public void setup(final FMLCommonSetupEvent event) {
         ExampleNetwork.list();
+        DeferredWorkQueue.runLater(() ->
+        {
+            GlobalEntityTypeAttributes.put(EntityTypeList.FC_ENTITY.get(), FCEntity.setAttributes().create());
+        });
     }
 
 
@@ -72,6 +83,8 @@ public class Tutorial {
     public void clientSetup(final FMLClientSetupEvent event) {
         ScreenManager.registerFactory(ContainerList.GUI_CASE_CONTAINER_TYPE.get(), DisplayCaseScreen::new);
         KeyBindingList.register(event);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypeList.FC_ENTITY.get(), FCEntityRenderer::new);
+
     }
 
     // 暂时用不到
