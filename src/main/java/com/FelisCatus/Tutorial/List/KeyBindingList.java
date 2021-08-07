@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 @OnlyIn(Dist.CLIENT)
 public class KeyBindingList {
     public static KeyBinding exampleKeyBinding;
+    public static KeyBinding callKey;
 
     private static KeyBinding _add(String name, int key) {
         return new KeyBinding("key." + Tutorial.MOD_ID + "." + name, key, "key." + Tutorial.MOD_ID + "." + "category");
@@ -19,6 +20,8 @@ public class KeyBindingList {
 
     public static void register(final FMLClientSetupEvent event) {
         exampleKeyBinding = _add("example_key", KeyEvent.VK_Z);
+        callKey = _add("call_key", KeyEvent.VK_C);
         ClientRegistry.registerKeyBinding(exampleKeyBinding);
+        ClientRegistry.registerKeyBinding(callKey);
     }
 }

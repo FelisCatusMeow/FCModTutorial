@@ -1,11 +1,8 @@
 package com.FelisCatus.Tutorial.Util.Container;
 
-import java.util.Objects;
-
 import com.FelisCatus.Tutorial.List.BlockList;
 import com.FelisCatus.Tutorial.List.ContainerList;
 import com.FelisCatus.Tutorial.List.TileEntities.GUITileEntity;
-
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
@@ -15,6 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
+
+import java.util.Objects;
 
 public class GUICaseContainer extends Container {
 

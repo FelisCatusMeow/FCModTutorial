@@ -1,8 +1,7 @@
 package com.FelisCatus.Tutorial.List;
 
-import com.FelisCatus.Tutorial.Tutorial;
 import com.FelisCatus.Tutorial.List.TileEntities.GUITileEntity;
-
+import com.FelisCatus.Tutorial.Tutorial;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;

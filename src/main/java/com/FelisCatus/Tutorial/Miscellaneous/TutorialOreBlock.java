@@ -1,10 +1,9 @@
 package com.FelisCatus.Tutorial.Miscellaneous;
 
-import java.util.Random;
-
 import net.minecraft.block.OreBlock;
 import net.minecraft.util.math.MathHelper;
 
+import java.util.Random;
 public class TutorialOreBlock extends OreBlock {
 
 	public TutorialOreBlock(Properties properties) {

@@ -1,8 +1,8 @@
 package com.FelisCatus.Tutorial.Util.SpecialBlocks;
 
-import com.FelisCatus.Tutorial.List.TileEntityList;
+import com.FelisCatus.Tutorial.List.ItemList;
 import com.FelisCatus.Tutorial.List.TileEntities.GUITileEntity;
-
+import com.FelisCatus.Tutorial.List.TileEntityList;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -38,15 +38,18 @@ public class ExampleGUIBlock extends Block {
     @SuppressWarnings("deprecation")
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
-            Hand handIn, BlockRayTraceResult hit) {
+                                             Hand handIn, BlockRayTraceResult hit) {
 
-        // 如果worldIn 没有 remote
-        if (!worldIn.isRemote()) {
-            TileEntity tileentity = worldIn.getTileEntity(pos);
+        if (player.getHeldItemMainhand().getItem()==ItemList.SOUP.get())//检测手持物品是否满足条件
+        {
+            // 如果worldIn 没有 remote
+            if (!worldIn.isRemote()) {
+                TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            // 检查TileEntity是否为关于显示的TileEntity
-            if (tileentity instanceof GUITileEntity) {
-                NetworkHooks.openGui((ServerPlayerEntity) player, (GUITileEntity) tileentity, pos);
+                // 检查TileEntity是否为关于显示的TileEntity
+                if (tileentity instanceof GUITileEntity) {
+                    NetworkHooks.openGui((ServerPlayerEntity) player, (GUITileEntity) tileentity, pos);
+                }
             }
         }
         return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
