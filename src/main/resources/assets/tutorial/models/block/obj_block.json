@@ -1,0 +1,4 @@
+{
+  "loader": "forge:obj",
+  "model": "tutorial:models/block/example_obj.obj"
+}

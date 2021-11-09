@@ -16,4 +16,7 @@ public class ContainerList
 
     public static final RegistryObject<ContainerType<GUICaseContainer>> GUI_CASE_CONTAINER_TYPE = CONTAINERS
             .register("gui_case", () -> IForgeContainerType.create(GUICaseContainer::new));
+
+    //public static final RegistryObject<ContainerType<GeneratorContainer>> GENERATOR_CONTAINER = CONTAINERS.register(
+     //       "generator_container",()-> IForgeContainerType.create(GeneratorContainer::new));
 }
