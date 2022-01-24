@@ -7,9 +7,8 @@ import com.FelisCatus.Tutorial.Tutorial;
 import com.FelisCatus.Tutorial.Util.CustomBlock;
 import com.FelisCatus.Tutorial.Util.SpecialBlocks.ExampleGUIBlock;
 import com.FelisCatus.Tutorial.Util.SpecialBlocks.GeneratorBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SoundType;
+import com.FelisCatus.Tutorial.World.Gen.TutorialTree;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -39,6 +38,20 @@ public class BlockList
             "generator_block", () -> new GeneratorBlock());
 
     public static final RegistryObject<Block> OBJ_BLOCK = BLOCKS.register("obj_block", OBJBlock::new);
+
+
+    public static final RegistryObject<Block> TUTORIAL_LOG = BLOCKS.register("tutorial_log",
+            () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_LOG)));
+
+    public static final RegistryObject<Block> TUTORIAL_LEAVES = BLOCKS.register("tutorial_leaves",
+            () -> new LeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2f)
+                    .tickRandomly().sound(SoundType.PLANT).notSolid()));
+
+    public static final RegistryObject<Block> TUTORIAL_SAPLING = BLOCKS.register("tutorial_sapling",
+            () -> new SaplingBlock(new TutorialTree(), AbstractBlock.Properties.from(Blocks.OAK_SAPLING)));
+
+
+
 
     /*
      * //楼梯

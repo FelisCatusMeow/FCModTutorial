@@ -1,5 +1,5 @@
 package com.FelisCatus.Tutorial.List;
-//这个目录里存放的是container,用于container的注册
+
 
 import com.FelisCatus.Tutorial.Tutorial;
 import com.FelisCatus.Tutorial.Util.Container.GUICaseContainer;
@@ -18,5 +18,5 @@ public class ContainerList
             .register("gui_case", () -> IForgeContainerType.create(GUICaseContainer::new));
 
     //public static final RegistryObject<ContainerType<GeneratorContainer>> GENERATOR_CONTAINER = CONTAINERS.register(
-     //       "generator_container",()-> IForgeContainerType.create(GeneratorContainer::new));
+    //       "generator_container",()-> IForgeContainerType.create(GeneratorContainer::new));
 }

@@ -8,6 +8,8 @@ import com.FelisCatus.Tutorial.List.Entity.FCEntity;
 import com.FelisCatus.Tutorial.Network.ExampleNetwork;
 import com.FelisCatus.Tutorial.World.Gen.OreGeneration;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.*;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,14 +33,16 @@ import org.apache.logging.log4j.Logger;
 
 @Mod("tutorial")
 @EventBusSubscriber(modid = "tutorial", bus = Mod.EventBusSubscriber.Bus.MOD)
-public class Tutorial {
+public class Tutorial
+{
 
     public static Tutorial instance;
     public static final Logger LOGGER = LogManager.getLogger(Tutorial.class);
     public static String MOD_ID = "tutorial";
     public static final ItemGroup TUTORIAL_GROUP = new Tutorial.TutorialGroup("tutorial_group");
 
-    public Tutorial() {
+    public Tutorial()
+    {
         instance = this;
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -56,11 +60,13 @@ public class Tutorial {
     }
 
     @SubscribeEvent
-    public static void BlockItems(final RegistryEvent.Register<Item> event) {
+    public static void BlockItems(final RegistryEvent.Register<Item> event)
+    {
         final IForgeRegistry<Item> registry = event.getRegistry();
 
         //.filter()为不想自动注册的方法
-        BlockList.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
+        BlockList.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block ->
+        {
             final Item.Properties properties = new Item.Properties().group(TUTORIAL_GROUP);
             final BlockItem blockItem = new BlockItem(block, properties);
             blockItem.setRegistryName(block.getRegistryName());
@@ -70,7 +76,8 @@ public class Tutorial {
 
     //更改为public
     @SuppressWarnings("deprecation")
-    public void setup(final FMLCommonSetupEvent event) {
+    public void setup(final FMLCommonSetupEvent event)
+    {
         ExampleNetwork.list();
         DeferredWorkQueue.runLater(() ->
         {
@@ -80,11 +87,18 @@ public class Tutorial {
 
 
     //更改为public
-    public void clientSetup(final FMLClientSetupEvent event) {
+    public void clientSetup(final FMLClientSetupEvent event)
+    {
         ScreenManager.registerFactory(ContainerList.GUI_CASE_CONTAINER_TYPE.get(), DisplayCaseScreen::new);
         KeyBindingList.register(event);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypeList.FC_ENTITY.get(), FCEntityRenderer::new);
 
+        event.enqueueWork(() ->
+        {
+            RenderTypeLookup.setRenderLayer(BlockList.TUTORIAL_LOG.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(BlockList.TUTORIAL_SAPLING.get(), RenderType.getCutout());
+
+        });
     }
 
     // 暂时用不到
@@ -93,14 +107,17 @@ public class Tutorial {
 
     // }
 
-    public static class TutorialGroup extends ItemGroup {
+    public static class TutorialGroup extends ItemGroup
+    {
 
-        public TutorialGroup(String name) {
+        public TutorialGroup(String name)
+        {
             super(name);
         }
 
         @Override
-        public ItemStack createIcon() {
+        public ItemStack createIcon()
+        {
             return new ItemStack(Items.IRON_DOOR);
         }
     }

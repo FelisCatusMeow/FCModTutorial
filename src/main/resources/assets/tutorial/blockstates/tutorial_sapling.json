@@ -1,0 +1,6 @@
+{
+  "variants":
+  {
+    "":{"model":"tutorial:block/tutorial_sapling"}
+  }
+}
