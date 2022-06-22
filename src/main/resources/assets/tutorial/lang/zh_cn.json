@@ -1,5 +1,7 @@
 {
     "item.tutorial.soup":"汤",
     "block.tutorial.tutorial_block":"教程方块",
-    "itemGroup.tutorial_group":"教程"
+    "itemGroup.tutorial_group":"教程",
+    "tooltip.tutorial.pink_sword_shift": "这是一把粉色的剑",
+    "tooltip.tutorial.pink_sword": "按住\u00A74SHIFT\u00A7r查看信息"
 }
