@@ -38,7 +38,7 @@ public class Tutorial
 
     public static Tutorial instance;
     public static final Logger LOGGER = LogManager.getLogger(Tutorial.class);
-    public static String MOD_ID = "tutorial";
+    public static final String MOD_ID = "tutorial";
     public static final ItemGroup TUTORIAL_GROUP = new Tutorial.TutorialGroup("tutorial_group");
 
     public Tutorial()

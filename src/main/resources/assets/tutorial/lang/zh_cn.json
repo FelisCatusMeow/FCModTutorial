@@ -3,5 +3,9 @@
     "block.tutorial.tutorial_block":"教程方块",
     "itemGroup.tutorial_group":"教程",
     "tooltip.tutorial.pink_sword_shift": "这是一把粉色的剑",
-    "tooltip.tutorial.pink_sword": "按住\u00A74SHIFT\u00A7r查看信息"
+    "tooltip.tutorial.pink_sword": "按住\u00A74SHIFT\u00A7r查看信息",
+    "tutorial.get.soup": "拿到了一碗汤~",
+    "tutorial.position.save": "保存的位置为：%s",
+    "tutorial.command.teleported": "已传送到目标地点",
+    "tutorial.command.teleported.missing": "无保存的坐标"
 }
